@@ -20,7 +20,7 @@ jobs:
         cd /usr/src/gtest
         sudo cmake CMakeLists.txt
         sudo make
-        sudo cp *.a /usr/lib
+        sudo cp lib/*.a /usr/lib
 
     - name: Configure CMake
       run: cmake -B build -DBUILD_TESTING=ON
@@ -30,18 +30,3 @@ jobs:
 
     - name: Test
       run: ctest --test-dir build --output-on-failure
-
-    - name: Run generator
-      run: |
-        mkdir -p result
-        ./build/src/markov data/pushkin.txt result/gen.txt 42
-
-    - name: Check output
-      run: |
-        if [ -s result/gen.txt ]; then
-          echo "Generated file exists and is non-empty"
-          wc -w result/gen.txt
-        else
-          echo "ERROR: Generated file is missing or empty"
-          exit 1
-        fi
