@@ -10,9 +10,8 @@
 static std::string clean_word(const std::string& word) {
   std::string result;
   for (char c : word) {
-    if (std::isalpha(static_cast<unsigned char>(c)) ||
-        c == '-' || c == '\'') {
-      result += std::tolower(static_cast<unsigned char>(c));
+    if (c != '\n' && c != '\r' && c != '\t') {
+      result += c;
     }
   }
   return result;
