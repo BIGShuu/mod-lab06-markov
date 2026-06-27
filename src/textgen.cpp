@@ -1,5 +1,6 @@
 // Copyright 2026 UNN-IASR
 #include "textgen.h"
+#include <algorithm>
 #include <cctype>
 #include <fstream>
 #include <sstream>
