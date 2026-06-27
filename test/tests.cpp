@@ -1,5 +1,6 @@
 // Copyright 2026 UNN-IASR
 #include <gtest/gtest.h>
+#include <fstream>
 #include <string>
 #include <vector>
 #include "textgen.h"
