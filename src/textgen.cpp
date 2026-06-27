@@ -12,17 +12,13 @@ static std::string clean_word(const std::string& word) {
   for (unsigned char c : word) {
     if (c >= 'A' && c <= 'Z') {
       result += c - 'A' + 'a';
-    }
-    else if (c >= 'a' && c <= 'z') {
+    } else if (c >= 'a' && c <= 'z') {
       result += c;
-    }
-    else if (c >= '0' && c <= '9') {
+    } else if (c >= '0' && c <= '9') {
       result += c;
-    }
-    else if (c == '-' || c == '\'') {
+    } else if (c == '-' || c == '\'') {
       result += c;
-    }
-    else if (c >= 0x80) {
+    } else if (c >= 0x80) {
       result += c;
     }
   }
