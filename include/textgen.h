@@ -15,16 +15,15 @@ class TextGenerator {
  private:
   statetab states;
   mutable std::mt19937 rng;
-  prefix build_prefix(const prefix& p,
-                      const std::string& word) const;
+
  public:
   explicit TextGenerator(unsigned seed = 42);
   void read_file(const std::string& filename);
   std::string generate(int max_words = MAXGEN);
   const statetab& get_states() const { return states; }
-  prefix make_prefix(const std::vector<std::string>& words)
-      const;
+  prefix make_prefix(const std::vector<std::string>& words) const;
   std::string choose_suffix(const prefix& p) const;
+  prefix build_prefix(const prefix& p, const std::string& word) const;
 };
 std::vector<std::string> split_words(const std::string& text);
 #endif  // INCLUDE_TEXTGEN_H_
